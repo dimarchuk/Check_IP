@@ -32,8 +32,9 @@ class Checkip
         if (null !== self::$app) {
             throw new \Exception('Application is already created');
         }
+        self::$app = new self();
 
-        return new self();
+        return self::$app;
     }
 
     /**
@@ -57,6 +58,7 @@ class Checkip
 
         return $response;
     }
+
     /**
      * @param string $ip
      * @return string
